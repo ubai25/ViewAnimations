@@ -1,0 +1,34 @@
+//
+//  ZoomAnimation.swift
+//  ViewAnimations
+//
+//  Created by Ahmad Ubaidillah on 04/10/21.
+//
+
+import UIKit
+import ViewAnimator
+
+class ZoomAnimation: UIViewController {
+    
+    private let rectangle = UIView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        rectangle.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        rectangle.center = view.center
+        rectangle.backgroundColor = .systemRed
+        
+//        let animation = AnimationType.rotate(angle: .pi/4)
+        let animation2 = AnimationType.zoom(scale: 2)
+        rectangle.animate(animations: [animation2])
+        
+        view.addSubview(rectangle)
+    }
+
+}
